@@ -29,9 +29,9 @@ public class Television implements RemoteControl {
 	
 	@Override
 	public void setMute(boolean mute) {
-		System.out.println("TV 음소거");
+		System.out.println("TV 음소거");	
 	}
-	
+
 	
 	
 }

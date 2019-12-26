@@ -21,7 +21,7 @@ public class RemoteControlMain {
 		rc.turnOff();
 		rc = new Audio();
 		rc.turnOn();
-		rc.setVolume(7);
+		rc.setVolume(100);
 		rc.setMute(true);
 		rc.turnOff();
 		
@@ -32,7 +32,7 @@ public class RemoteControlMain {
 		SmartTelevision st = new SmartTelevision();
 		
 		st.turnOn();
-		st.setVolume(7);
+		st.setVolume(10);
 		st.setMute(true);
 		st.turnOff();
 		

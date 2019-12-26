@@ -29,7 +29,7 @@ public class SmartTelevision implements RemoteControl, InternetSearch {
 		} else {
 			this.volume = volume;
 		}
-		System.out.println("현재 스마트 TV 볼륨 : " + volume);
+		System.out.println("현재 스마트 TV 볼륨 : " + this.volume);
 		
 		
 		
