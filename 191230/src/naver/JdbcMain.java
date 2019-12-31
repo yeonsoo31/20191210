@@ -18,9 +18,9 @@ public class JdbcMain {
 
 		boolean run = true;
 		while(run) {
-		System.out.println("┌───────────┬────────────┬────────────┬───────────────");
-		System.out.println("│0. DB접속    │1. 전체 조회  │2. 회원가입   │3. 회원정보수정   4. 회원탈퇴");
-		System.out.println("└───────────┴────────────┴────────────┴────────────────");
+		System.out.println("┌───────────┬───────────────┬────────────┬───────────────┬────────────┬─────────┐");
+		System.out.println("│0. DB접속    │1. 관리자 조회    │2. 회원가입   │3. 회원정보수정  │4. 회원탈퇴   │5. 종료    │");
+		System.out.println("└───────────┴───────────────┴────────────┴───────────────┴────────────┴─────────┘");
 		System.out.print("> ");
 		selectNum = scan.nextInt();
 		
@@ -28,10 +28,14 @@ public class JdbcMain {
 		case 0:
 			sql.dbConnection();
 			break;
-		
 		case 1:
-			sql.selectDB();
+			System.out.print("아이디 : ");
+			String id = scan.next();
+			System.out.print("비밀번호 : ");
+			String password = scan.next();
+			sql.adminDB(id, password);
 			break;
+		
 		case 2:
 			sql.insertDB(nm);
 			break;
@@ -44,32 +48,42 @@ public class JdbcMain {
 			if(selectNum==1) {	
 				System.out.println("비밀번호 변경하실 아이디와 비밀번호를 입력해주세요.");
 				System.out.print("아이디 : ");
-				String id = scan.next();
+				id = scan.next();
 				System.out.print("비밀번호 : ");
-				String password = scan.next();
+				password = scan.next();
 			sql.passwordupdateDB(id, password);
 			break;
 			} else if(selectNum==2) {
 				System.out.println("이메일 변경하실 아이디와 비밀번호를 입력해주세요.");
 				System.out.print("아이디 : ");
-				String id = scan.next();
+				id = scan.next();
 				System.out.print("비밀번호 : ");
-				String password = scan.next();
+				password = scan.next();
 				
 			sql.emailupdateDB(id, password);
 				break;
 			} else if(selectNum==3) {
 				System.out.println("전화번호 변경하실 아이디와 비밀번호를 입력해주세요.");
 				System.out.print("아이디 : ");
-				String id = scan.next();
+				id = scan.next();
 				System.out.print("비밀번호 : ");
-				String password = scan.next();
-				
-			sql.phoneupdateDB(id, password);
+				password = scan.next();
+			}
+			break;
+		case 4:
+			System.out.print("아이디 : ");
+			id = scan.next();
+			System.out.print("비밀번호 : ");
+			password = scan.next();
+			sql.deleteDB(id, password);
 				break;
+		case 5:
+			System.out.println("종료합니다.");
+			run = false;
+			break;
 			}
 		}
-	}
+	
 
 	
 	

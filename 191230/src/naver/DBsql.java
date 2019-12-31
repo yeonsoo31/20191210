@@ -36,7 +36,6 @@ public class DBsql {
 				System.out.print("성별 : "+rs.getString("gender")+", ");
 				System.out.print("본인확인이메일 : "+rs.getString("email")+", ");
 				System.out.print("휴대전화 : "+rs.getString("phone")+", ");
-				
 				System.out.println("");
 				
 			}
@@ -228,12 +227,81 @@ public class DBsql {
 	
 	
 	
-	public void deleteDB() {
+	public void deleteDB(String id, String password) {
 		
+		String sql = "SELECT PASSWORD FROM MEMBER WHERE ID = ?";
+			Scanner scan = new Scanner(System.in);
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					if(rs.getString("password").equals(password)){
+						String sql2 = "DELETE FROM MEMBER WHERE ID = ?";
+						pstmt = con.prepareStatement(sql2);
+					System.out.println("정말 탈퇴하시겠습니까?");
+					System.out.println("┌──────┬─────────┐");
+					System.out.println("│1. 네  │2. 아니요 │");
+					System.out.println("└──────┴─────────┘");
+					int answer = scan.nextInt();
+					if(answer==1) {
+						pstmt.setString(1, id);
+						pstmt.executeUpdate();
+						System.out.println("탈퇴완료");
+					} else {
+						System.out.println("탈퇴처리를 취소했습니다.");
+				}
+					} else {
+						System.out.println("입력하신 정보가 일치하지 않습니다.");
+					}}else {
+						System.out.println("입력하신 정보가 일치하지 않습니다.");
+					}
+					}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			
 	}
+			
+			
+	public void adminDB(String id, String password) {
+		String sql = "SELECT * FROM MEMBER";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(id.equals("admin")&&password.equals("0000")) {
+			while(rs.next()) {
+				System.out.println("");
+				System.out.print("아이디 : "+rs.getString("id")+", ");
+				System.out.print("비밀번호 : "+rs.getString("password")+", ");
+				System.out.print("이름 : "+rs.getString("name")+", ");
+				System.out.print("생년월일 : "+rs.getString("birth")+", ");
+				System.out.print("성별 : "+rs.getString("gender")+", ");
+				System.out.print("본인확인이메일 : "+rs.getString("email")+", ");
+				System.out.print("휴대전화 : "+rs.getString("phone")+", ");
+				System.out.println("");	
+			}} else {
+				System.out.println("입력하신 정보가 일치하지 않습니다.");
+			}
+			} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+					
+			
+			
+			
+			
 	
-	
-	
-	
-
 }
