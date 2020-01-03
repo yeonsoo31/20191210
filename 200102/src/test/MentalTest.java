@@ -2,22 +2,37 @@ package test;
 
 public class MentalTest {
 	
-	private int selectNum;
-	private int score;
 	private String id;
 	private String password;
-	public int getSelectNum() {
-		return selectNum;
+	private String name;
+	private String tel;
+	private int balance;
+	private int dScore;
+	private int sScore;
+	private int aaScore;
+	private int iaScore;
+	
+	MentalTest(){
+		
 	}
-	public void setSelectNum(int selectNum) {
-		this.selectNum = selectNum;
+	
+	public MentalTest(String id, String password, String name, String tel, int balance, int dScore, int sScore,
+			int aaScore, int iaScore) {
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.tel = tel;
+		this.balance = balance;
+		this.dScore = dScore;
+		this.sScore = sScore;
+		this.aaScore = aaScore;
+		this.iaScore = iaScore;
 	}
-	public int getScore() {
-		return score;
-	}
-	public void setScore(int score) {
-		this.score = score;
-	}
+
+
+
+
+
 	public String getId() {
 		return id;
 	}
@@ -30,9 +45,59 @@ public class MentalTest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public int getBalance() {
+		return balance;
+	}
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+	public int getdScore() {
+		return dScore;
+	}
+	public void setdScore(int dScore) {
+		this.dScore = dScore;
+	}
+	public int getsScore() {
+		return sScore;
+	}
+	public void setsScore(int sScore) {
+		this.sScore = sScore;
+	}
+	public int getAaScore() {
+		return aaScore;
+	}
+	public void setAaScore(int aaScore) {
+		this.aaScore = aaScore;
+	}
+	public int getIaScore() {
+		return iaScore;
+	}
+	public void setIaScore(int iaScore) {
+		this.iaScore = iaScore;
+	}
+
+	@Override
+	public String toString() {
+		return "MentalTest [id=" + id + ", password=" + password + ", name=" + name + ", tel=" + tel + ", balance="
+				+ balance + ", dScore=" + dScore + ", sScore=" + sScore + ", aaScore=" + aaScore + ", iaScore="
+				+ iaScore + "]";
+	}
 	
 	
 	
 	
 	
+
 }
