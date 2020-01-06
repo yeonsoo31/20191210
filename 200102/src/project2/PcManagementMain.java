@@ -13,9 +13,9 @@ public class PcManagementMain {
 		boolean run = true;
 		while(run) {
 			System.out.println("");
-			System.out.println("┌────────────┬───────────────┬────────────┬────────────┬────────────┬─────────┐");
-			System.out.println("│1. 회원가입   │2. 회원정보수정  │3. 회원 탈퇴  │4. 요금 충전  │5. 음식 주문  │6. 종료    │");
-			System.out.println("└────────────┴───────────────┴────────────┴────────────┴────────────┴─────────┘");
+			System.out.println("┌────────────┬───────────────┬────────────┬────────────┬──────────────┬────────────┬─────────┬─────────────┐");
+			System.out.println("│1. 회원가입   │2. 회원정보수정  │3. 회원 탈퇴  │4. 요금 충전  │5. PC사용시작   │6. 음식 주문  │7. 종료    │99. 관리자모드│");
+			System.out.println("└────────────┴───────────────┴────────────┴────────────┴──────────────┴────────────┴─────────┴─────────────┘");
 			System.out.print("> ");
 			int selectNo = scan.nextInt();
 			switch(selectNo) {
@@ -91,9 +91,10 @@ public class PcManagementMain {
 				}
 				break;
 			case 5:
-				System.out.println("");
 				break;
 			case 6:
+				break;
+			case 7:
 				System.out.println("이용해주셔서 감사합니다.");
 				run = false;
 				break;
